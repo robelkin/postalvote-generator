@@ -1,0 +1,20 @@
+{
+  "name": "postalvotes",
+  "version": "1.0.0",
+  "description": "A utility to help generate pre filled postal vote forms ",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon index.js"
+  },
+  "author": "Rob Elkin",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.17.1",
+    "express": "^4.15.2",
+    "express-validator": "^3.2.0",
+    "hummus": "^1.0.75"
+  },
+  "devDependencies": {
+    "nodemon": "^1.11.0"
+  }
+}
