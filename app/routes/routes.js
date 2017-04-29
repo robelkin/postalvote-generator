@@ -2,6 +2,12 @@ module.exports = function(app) {
 
   var postHelpers = require('../helpers/post_helper');
   var pdfGenerator = require('../helpers/pdf');
+  var path = require('path');
+
+  app.get('/', (req, res) => {
+    res.status(200);
+    res.sendFile(path.resolve("views/index.html"));
+  });
 
   app.post('/postalvote', (req, res) => {
       //console.log(req.body)
