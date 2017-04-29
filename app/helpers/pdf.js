@@ -9,11 +9,12 @@ module.exports = {
 
     //var outStream = new hummus.PDFWStreamForFile(__dirname + '/../../output/FilledForm.pdf');
 
-
     var pdfWriter = hummus.createWriterToModify(
         new hummus.PDFRStreamForFile(__dirname + "/../../pdf/Postal-Vote-Application-Form.pdf"),
         new hummus.PDFWStreamForFile(__dirname + '/../../output/FilledForm.pdf')
     );
+
+    var fontfile = pdfWriter.getFontForFile(__dirname + '/../../fonts/arial.ttf');
 
 /*
     var pdfWriter = hummus.createWriterToModify(
@@ -58,12 +59,8 @@ module.exports = {
 
     var pageModifier = new hummus.PDFPageModifier(pdfWriter,2);
 
-    var fontfile = pdfWriter.getFontForFile(__dirname + '/../../fonts/arial.ttf');
-
-        console.log(fontfile);
-
     for(key in mainTextCoords){
-      writeHelper.writeLine(pageModifier, userData[key], mainTextCoords[key].x, mainTextCoords[key].y, 12);
+      writeHelper.writeLine(pageModifier, userData[key], mainTextCoords[key].x, mainTextCoords[key].y, 12, fontfile);
     }
 
     switch (userData.postallength) {
@@ -82,8 +79,7 @@ module.exports = {
       tickcoords[userData.postallength].x1, tickcoords[userData.postallength].y1,
       tickcoords[userData.postallength].x2, tickcoords[userData.postallength].y2,
       tickcoords[userData.postallength].x3, tickcoords[userData.postallength].y3,
-      12,
-      fontfile
+      writeHelper.fontInfo()
     );
 
     // Sort out todays date for the bottom of the page
@@ -96,7 +92,7 @@ module.exports = {
     dob = dateTools.formatdate(userData.dobday, userData.dobmonth, userData.dobyear, true);
 
     for(key in dobcoords){
-      writeHelper.writeLine(dob[key], dobcoords[key].x, dobcoords[key].y, 20, fontfile);
+      writeHelper.writeLine(pageModifier, dob[key], dobcoords[key].x, dobcoords[key].y, 20, fontfile);
     }
 
     pageModifier.endContext().writePage();
