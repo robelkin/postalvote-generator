@@ -1,9 +1,15 @@
 var hummus = require('hummus');
 var tools = require('./dates.js');
 
-var pdfWriter = hummus.createWriterToModify(__dirname + '/../pdf/Postal-Vote-Application-Form.pdf', {
-			modifiedFilePath: __dirname + '/../output/FilledForm.pdf'
-		});
+var inStream = new hummus.PDFRStreamForFile(__dirname + '/../pdf/Postal-Vote-Application-Form.pdf');
+
+var outStream = new hummus.PDFWStreamForFile(__dirname + '/../output/FilledForm.pdf');
+
+//var outStream = new hummus.PDFStreamForResponse();
+
+var pdfWriter = hummus.createWriterToModify(inStream,outStream);
+
+//var pdfWriter = hummus.createWriterToModify(__dirname + '/../pdf/Postal-Vote-Application-Form.pdf', {modifiedFilePath: __dirname + '/../output/FilledForm.pdf'});
 
 var fontfile = pdfWriter.getFontForFile(__dirname + '/../fonts/arial.ttf');
 
@@ -75,3 +81,6 @@ tools.writedate(pageModifier, currentdate.getDate(), currentdate.getMonth()+1, c
 
 pageModifier.endContext().writePage();
 pdfWriter.end();
+
+outStream.close();
+inStream.close();

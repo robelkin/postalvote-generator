@@ -1,6 +1,7 @@
 module.exports = function(app) {
 
   var postHelpers = require('../helpers/post_helper');
+  var pdfGenerator = require('../helpers/pdf');
 
   app.post('/postalvote', (req, res) => {
       //console.log(req.body)
@@ -14,7 +15,10 @@ module.exports = function(app) {
           return;
         }
         else {
-          res.json({"result":"ok"});
+          res.writeHead(200, {'Content-Type': 'application/pdf'});
+          pdfGenerator.generatePdf(res, req.body);
+          //console.log(req.body);
+          res.end();
         }
       });
   });

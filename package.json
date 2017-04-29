@@ -4,11 +4,13 @@
   "description": "A utility to help generate pre filled postal vote forms ",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon index.js"
+    "dev": "nodemon index.js",
+    "start": "node index.js"
   },
   "author": "Rob Elkin",
   "license": "ISC",
   "dependencies": {
+    "@google-cloud/debug-agent": "^1.0.0",
     "body-parser": "^1.17.1",
     "express": "^4.15.2",
     "express-validator": "^3.2.0",
@@ -16,5 +18,16 @@
   },
   "devDependencies": {
     "nodemon": "^1.11.0"
+  },
+  "engines": {
+    "node": "*"
+  },
+  "semistandard": {
+    "ignore": [
+      "appengine/loopback",
+      "appengine/parse-server/cloud/main.js",
+      "**/node_modules/**",
+      "coverage"
+    ]
   }
 }
