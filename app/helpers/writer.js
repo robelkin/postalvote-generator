@@ -1,10 +1,10 @@
 module.exports = {
 
   writeLine : function(pageModifier, text, x, y, textSize, fontfile){
-    if(text != undefined && x != undefined && y != undefined && textSize != undefined, fontfile != undefined)
+    if(text != undefined && x != undefined && y != undefined && textSize != undefined && fontfile != undefined)
     {
       pageModifier.startContext().getContext().writeText(
-          text, x, y, fontInfo(textSize, fontfile)
+          text, x, y, this.fontInfo(textSize, fontfile)
       );
     }
   },
