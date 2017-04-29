@@ -65,13 +65,43 @@ module.exports = {
 
     switch (userData.postallength) {
       case "specificdate":
-        dateTools.writedate(pageModifier, currentdate.getDate(), currentdate.getMonth()+1, currentdate.getFullYear(), 154, 214, 12, fontfile);
+        dateTools.writedate(
+              pageModifier,
+              userData['postallength-date-day'],
+              userData['postallength-date-month'],
+              userData['postallength-date-year'],
+              154,
+              214,
+              12,
+              fontfile);
+      break;
+
       case "period":
-        dateTools.writedate(pageModifier, currentdate.getDate(), currentdate.getMonth()+1, currentdate.getFullYear(), 154, 157, 12, fontfile);
-        dateTools.writedate(pageModifier, currentdate.getDate(), currentdate.getMonth()+1, currentdate.getFullYear(), 154, 130, 12, fontfile);
+        dateTools.writedate(
+              pageModifier,
+              userData['postallength-period-start-day'],
+              userData['postallength-period-start-month'],
+              userData['postallength-period-start-year'],
+              154,
+              157,
+              12,
+              fontfile
+            );
+
+        dateTools.writedate(
+              pageModifier,
+              userData['postallength-period-end-day'],
+              userData['postallength-period-end-month'],
+              userData['postallength-period-end-year'],
+              154,
+              130,
+              12,
+              fontfile
+            );
+      break;
+
       case "perm":
       default:
-
       break;
     }
 
