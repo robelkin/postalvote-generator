@@ -9,6 +9,16 @@ module.exports = function(app) {
     res.sendFile(path.resolve("views/index.html"));
   });
 
+  app.get('/contact', (req, res) => {
+    res.status(200);
+    res.sendFile(path.resolve("views/contact.html"));
+  });
+
+  app.get('/about', (req, res) => {
+    res.status(200);
+    res.sendFile(path.resolve("views/about.html"));
+  });
+
   app.post('/postalvote', (req, res) => {
       //console.log(req.body)
 

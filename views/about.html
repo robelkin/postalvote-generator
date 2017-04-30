@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Postal Vote Generator</title>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/css/bootstrap-datepicker.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/css/bootstrap-datepicker3.standalone.min.css">
+  <link rel="stylesheet" href="../css/postalvotes.css">
+
+</head>
+<body>
+  <!-- Fixed navbar -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Postal Vote Generator</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="/">Home</a></li>
+            <li class="active"><a href="about">About</a></li>
+            <li><a href="contact">Contact</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+    <div class="col-md-5 col-md-offset-1">
+      <div class="page-header">
+        <h1>About this site</h1>
+      </div>
+      <div>
+        Everyone should have the chance to vote, wether they are able to visit the polling station or not.
+        Unfortunately it isn't possible to apply for a postal vote online, so I decided to build something to make the process a little easier.
+        <p>
+          All code is available on <a href="https://github.com/robelkin/postalvote-generator" target="_blank">GitHub</a>, pull requests graciously accepted as there are still a bunch of rough edges!
+        </p>
+        <p>There are a number of features still to complete:</p>
+        <ul>
+          <li>Linking to local borough information for submitting postal vote application forms based on entered address</li>
+          <li>Gather signatures from users and add to the form</li>
+          <li>Submit to a service to post the form on a users behalf?</li>
+          <li>Something else from you? 😋</li>
+        </ul>
+      </div>
+      <div class="page-header">
+        <h1>About the creator</h1>
+      </div>
+      <div>
+        This tool was built by <a href="https://twitter.com/robelkin" target="_blank"> Rob Elkin</a>. Rob is the CTO of <a href="https://busuu.com" target="_blank">busuu</a>, the worlds largest social network for language learning, where he leads teams to bring language learning to the world. As well as helping everyone to learn a new language, he is also a founder of <a href="http://altconf.com" target="_blank">AltConf</a>, the Apple Developer community’s biggest independent conference.
+      </div>
+    </div>
+
+</body>
+</html>
