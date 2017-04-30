@@ -4,15 +4,21 @@ module.exports = {
     var hummus = require('hummus');
     var dateTools = require('./dates.js');
     var writeHelper = require('./writer.js');
+    var crypto = require('crypto');
 
     //var inStream = new hummus.PDFRStreamForFile(__dirname + '/../../pdf/Postal-Vote-Application-Form.pdf');
 
     //var outStream = new hummus.PDFWStreamForFile(__dirname + '/../../output/FilledForm.pdf');
 
+    var id = crypto.randomBytes(20).toString('hex');
+
     var pdfWriter = hummus.createWriterToModify(
         new hummus.PDFRStreamForFile(__dirname + "/../../pdf/Postal-Vote-Application-Form.pdf"),
-        new hummus.PDFWStreamForFile(__dirname + '/../../output/FilledForm.pdf')
+        new hummus.PDFWStreamForFile(__dirname + '/../../public/pdf/'+id+'.pdf')
     );
+    //new hummus.PDFWStreamForFile(__dirname + '/../../output/FilledForm.pdf')
+    //new hummus.PDFStreamForResponse(res)
+    //new hummus.PDFWStreamForFile(__dirname + '/../../public/pdf/FilledForm.pdf')
 
     var fontfile = pdfWriter.getFontForFile(__dirname + '/../../fonts/arial.ttf');
 
@@ -128,6 +134,7 @@ module.exports = {
     pageModifier.endContext().writePage();
     pdfWriter.end();
 
+    return 'pdf/'+id+'.pdf';
     //outStream.close();
     //inStream.close();
   }

@@ -21,8 +21,9 @@ module.exports = function(app) {
           return;
         }
         else {
-          res.writeHead(200, {'Content-Type': 'application/pdf'});
-          pdfGenerator.generatePdf(res, req.body);
+          //res.writeHead(200, {'Content-Type': 'application/json'});
+          urlReturned = pdfGenerator.generatePdf(res, req.body);
+          res.status(200).json({"url": urlReturned});
           //console.log(req.body);
           res.end();
         }
