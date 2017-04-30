@@ -4,10 +4,12 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Starter Template for Bootstrap</title>
+  <title>Postal Vote Generator</title>
 
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<link rel="stylesheet" href="../css/postalvotes.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/css/bootstrap-datepicker.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/css/bootstrap-datepicker3.standalone.min.css">
+  <link rel="stylesheet" href="../css/postalvotes.css">
 
 </head>
 <body>
@@ -33,22 +35,192 @@
       </div>
     </nav>
 
-    <div class="container">
+    <form class="form-horizontal" id="generateForm">
 
-      <!-- Main component for a primary marketing message or call to action -->
-      <div class="jumbotron">
-        <h1>Navbar example</h1>
-        <p>This example is a quick exercise to illustrate how the default, static and fixed to top navbar work. It includes the responsive CSS and HTML, so it also adapts to your viewport and device.</p>
-        <p>To see the difference between static and fixed top navbars, just scroll.</p>
-        <p>
-          <a class="btn btn-lg btn-primary" href="../../components/#navbar" role="button">View navbar docs &raquo;</a>
-        </p>
+    <div class="row">
+      <div class="col-md-5 col-md-offset-3">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h3 class="panel-title">About you</h3>
+            </div>
+            <div class="panel-body">
+
+              <div class="form-group">
+                <label for="surname" class="col-sm-3 control-label">Surname</label>
+                <div class="col-sm-9">
+                  <input type="surname" class="form-control" name="surname" id="surname" placeholder="Surname">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="firstname" class="col-sm-3 control-label">First name(s)</label>
+                <div class="col-sm-9">
+                  <input type="firstname" class="form-control" name="firstname" id="firstname" placeholder="First name(s)">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="addressline1" class="col-sm-3 control-label">Address Line 1</label>
+                <div class="col-sm-9">
+                  <input type="addressline1" class="form-control" name="addressline1" id="addressline1" placeholder="Address Line 1">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="addressline2" class="col-sm-3 control-label">Address Line 2</label>
+                <div class="col-sm-9">
+                  <input type="addressline2" class="form-control" name="addressline2" id="addressline2" placeholder="Address Line 2">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="addressline3" class="col-sm-3 control-label">Address Line 3</label>
+                <div class="col-sm-9">
+                  <input type="addressline3" class="form-control" name="addressline3" id="addressline3" placeholder="Address Line 3">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="postcode" class="col-sm-3 control-label">Postcode</label>
+                <div class="col-sm-9">
+                  <input type="postcode" class="form-control" name="postcode" id="postcode" placeholder="Postcode">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="emailaddress" class="col-sm-3 control-label">Email Address (optional)</label>
+                <div class="col-sm-9">
+                  <input type="emailaddress" class="form-control" name="emailaddress" id="emailaddress" placeholder="Email Address (optional)">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="phonenumber" class="col-sm-3 control-label">Phone Number (optional)</label>
+                <div class="col-sm-9">
+                  <input type="phonenumber" class="form-control" name="phonenumber" id="phonenumber" placeholder="Phone Number (optional)">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="dob" class="col-sm-3 control-label">Date of birth</label>
+                  <div class="input-group date col-sm-9" data-provide="datepicker" data-date-format="dd/mm/yyyy">
+                    <input type="text" name="dob" id="dob" class="form-control">
+                    <div class="input-group-addon">
+                        <span class="glyphicon glyphicon-th"></span>
+                    </div>
+                  </div>
+                </div>
+            </div>
+          </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-5 col-md-offset-3">
+          <div class="panel panel-default" id="accordionDates" role="tablist" aria-multiselectable="true">
+            <div class="panel-heading">
+              <h3 class="panel-title">How long do you want a postal vote for?</h3>
+            </div>
+            <div class="panel-body">
+
+              <div class="radio">
+                <label>
+                  <input type="radio" name="postallength" id="postallength" value="perm" checked>
+                  Permanently
+                </label>
+              </div>
+              <div class="radio">
+                <label>
+                  <input type="radio" name="postallength" id="postallength" value="specificdate">
+                  A specific date
+                </label>
+              </div>
+              <label for="dob" class="col-sm-3 control-label">Choose date</label>
+              <div class="input-group date col-sm-9" data-provide="datepicker" data-date-format="dd/mm/yyyy">
+                <input type="text" id="specific-date" name="specific-date" class="form-control" value="08/06/2017">
+                <div class="input-group-addon">
+                    <span class="glyphicon glyphicon-th"></span>
+                </div>
+              </div>
+              <div class="radio">
+                <label>
+                  <input type="radio" name="postallength" id="postallength" value="period">
+                  A period of time
+                </label>
+              </div>
+              <label for="dob" class="col-sm-3 control-label">Choose date</label>
+              <div class="input-group date col-sm-9" data-provide="datepicker" data-date-format="dd/mm/yyyy">
+                <input type="text" id="period-start" name="period-start" class="form-control">
+                <div class="input-group-addon">
+                    <span class="glyphicon glyphicon-th"></span>
+                </div>
+              </div>
+              <label for="dob" class="col-sm-3 control-label">Choose date</label>
+              <div class="input-group date col-sm-9" data-provide="datepicker" data-date-format="dd/mm/yyyy">
+                <input type="text" id="period-end" name="period-end" class="form-control">
+                <div class="input-group-addon">
+                    <span class="glyphicon glyphicon-th"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
 
-    </div> <!-- /container -->
+    <div class="row">
+      <div class="col-md-5 col-md-offset-3">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title">
+                <a data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample"><h3 class="panel-title">Address to send ballot paper to (click if different from above)</h3></a>
+              </h4>
+            </div>
+            <div class="panel-body collapse" id="collapseExample">
+
+              <div class="form-group">
+                <label for="ballotaddress1" class="col-sm-3 control-label">Address Line 1</label>
+                <div class="col-sm-9">
+                  <input type="ballotaddress1" class="form-control" name="ballotaddress1" id="ballotaddress1" placeholder="Address Line 1">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="ballotaddress2" class="col-sm-3 control-label">Address Line 2</label>
+                <div class="col-sm-9">
+                  <input type="ballotaddress2" class="form-control" name="ballotaddress2" id="ballotaddress2" placeholder="Address Line 2">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="ballotpostcode" class="col-sm-3 control-label">Postcode</label>
+                <div class="col-sm-9">
+                  <input type="ballotpostcode" class="form-control" name="ballotpostcode" id="ballotpostcode" placeholder="Postcode">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="ballotreasonchange" class="col-sm-3 control-label">Reason for change</label>
+                <div class="col-sm-9">
+                  <input type="ballotreasonchange" class="form-control" name="ballotreasonchange" id="ballotreasonchange" placeholder="Reason for address change">
+                </div>
+              </div>
+
+            </div>
+          </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-sm-offset-6 col-sm-2">
+        <button type="submit" id="generate-submit" class="btn btn-success">Generate Postal Vote Form</button>
+      </div>
+    </div>
+  </form>
+
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/js/bootstrap-datepicker.min.js"></script>
+    <script  type="text/javascript" src="../js/postalvotes.js"></script>
 </body>
 </html>
